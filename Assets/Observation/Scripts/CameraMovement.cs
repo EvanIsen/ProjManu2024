@@ -17,18 +17,24 @@ using UnityEngine;
         //Get Camera
         public GameObject Camera;
 
-        private GameObject _nextcam;
-        private GameObject _activecam;
+        //Variables for Camera Swap handling
         private CameraInLevel _cam;
         public GameObject camerasHandler;
 
-
+        //Variables for Camera Zoom Handling
+        private Camera cam;
+        private float scroll, zoom;
+        [SerializeField] private float maxFOV, minFOV;
+        
+        
         private void Start()
         {
+            cam = Camera.GetComponent<Camera>();
             _cam  = camerasHandler.GetComponent<CameraInLevel>();
-
-            _activecam = GetActiveCam(_cam.CamList);
-            _nextcam = GetNextCam(_cam.CamList, _activecam);
+            
+            zoom = cam.fieldOfView;
+            _cam._activeCam = GetActiveCam(_cam.CamList);
+            _cam._nextCam = GetNextCam(_cam.CamList, _cam._activeCam);
         }
         
         // Update is called once per frame
@@ -38,18 +44,21 @@ using UnityEngine;
             {
                 SwapCamera();
             }
-            
+
             Cursor.lockState = CursorLockMode.Locked;
             RotateCamera();
+            ZoomCamera();
         }
 
         private void SwapCamera()
         {
-            _activecam.SetActive(false);
-            _nextcam.SetActive(true);
+            _cam._activeCam.SetActive(false);
+            _cam._nextCam.SetActive(true);
             
-            _activecam = GetActiveCam(_cam.CamList);
-            _nextcam = GetNextCam(_cam.CamList, _activecam);
+            _cam._activeCam = GetActiveCam(_cam.CamList);
+            _cam._nextCam = GetNextCam(_cam.CamList, _cam._activeCam);
+            
+
         }
         private void RotateCamera()
         {
@@ -90,7 +99,7 @@ using UnityEngine;
         {
             foreach (GameObject cam in camList)
             {
-                if (cam.activeInHierarchy) return cam;
+                if (cam.activeInHierarchy) {return cam;}
             }
 
             return null;
@@ -110,4 +119,16 @@ using UnityEngine;
             }
             return null;
         }
+
+        private void ZoomCamera()
+        {
+            scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll > 0) zoom *= .90f;
+            else if (scroll < 0) zoom *= 1.1f;
+            zoom = Mathf.Clamp(zoom, minFOV, maxFOV);
+            cam.fieldOfView = zoom;
+
+        }
+        
+        
     }

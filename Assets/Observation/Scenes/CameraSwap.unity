@@ -257,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 286947852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9351507, z: 0, w: 0.3542502}
-  m_LocalPosition: {x: 0.010000229, y: 0.39400005, z: 0.10000038}
+  m_LocalPosition: {x: 0.010000229, y: 0.464, z: -0.25}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,7 +304,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -338,6 +338,8 @@ MonoBehaviour:
   maxYRot: 220
   Camera: {fileID: 286947852}
   camerasHandler: {fileID: 970197581}
+  maxFOV: 80
+  minFOV: 20
 --- !u!1 &365874048
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +573,8 @@ MonoBehaviour:
   - {fileID: 1464211759}
   - {fileID: 1898026640}
   - {fileID: 286947852}
+  _activeCam: {fileID: 0}
+  _nextCam: {fileID: 0}
 --- !u!4 &970197583
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +699,8 @@ MonoBehaviour:
   maxYRot: 220
   Camera: {fileID: 1464211759}
   camerasHandler: {fileID: 970197581}
+  maxFOV: 0
+  minFOV: 0
 --- !u!1 &1652148604
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +916,8 @@ MonoBehaviour:
   maxYRot: 220
   Camera: {fileID: 1898026640}
   camerasHandler: {fileID: 970197581}
+  maxFOV: 0
+  minFOV: 0
 --- !u!1 &2069366930
 GameObject:
   m_ObjectHideFlags: 0

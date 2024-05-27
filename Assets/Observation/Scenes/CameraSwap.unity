@@ -337,6 +337,7 @@ MonoBehaviour:
   mixYRot: 150
   maxYRot: 220
   Camera: {fileID: 286947852}
+  camerasHandler: {fileID: 970197581}
 --- !u!1 &365874048
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +597,7 @@ GameObject:
   - component: {fileID: 1464211760}
   - component: {fileID: 1464211762}
   - component: {fileID: 1464211761}
+  - component: {fileID: 1464211763}
   m_Layer: 0
   m_Name: RedCam
   m_TagString: Untagged
@@ -677,6 +679,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1464211763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464211759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f6dee48f8fe194d9b33ffc166c5920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixYRot: 150
+  maxYRot: 220
+  Camera: {fileID: 1464211759}
+  camerasHandler: {fileID: 970197581}
 --- !u!1 &1652148604
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +812,7 @@ GameObject:
   - component: {fileID: 1898026641}
   - component: {fileID: 1898026643}
   - component: {fileID: 1898026642}
+  - component: {fileID: 1898026644}
   m_Layer: 0
   m_Name: GreenCam
   m_TagString: Untagged
@@ -875,6 +894,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1898026644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898026640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f6dee48f8fe194d9b33ffc166c5920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixYRot: 150
+  maxYRot: 220
+  Camera: {fileID: 1898026640}
+  camerasHandler: {fileID: 970197581}
 --- !u!1 &2069366930
 GameObject:
   m_ObjectHideFlags: 0
